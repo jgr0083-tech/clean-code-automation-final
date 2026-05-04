@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class OrderService {
-
+    private static final String ORDER_INTERNATIONAL = "INTERNATIONAL";
+    private static final String ORDER_NORMAL = "NORMAL";
+    private static final String ORDER_PRIORITY = "PRIORITY";
     private static final double DISCOUNT_THRESHOLD = 100;
     private static final double DISCOUNT_RATE = 0.9;
     private List<String> orders = new ArrayList<>();
@@ -19,11 +21,11 @@ public class OrderService {
 
         double total = price * quantity;
 
-        if (orderType.equals("NORMAL")) {
+        if (orderType.equals(ORDER_NORMAL)) {
             System.out.println("Normal order");
-        } else if (orderType.equals("PRIORITY")) {
+        } else if (orderType.equals(ORDER_PRIORITY)) {
             System.out.println("Priority order");
-        } else if (orderType.equals("INTERNATIONAL")) {
+        } else if (orderType.equals(ORDER_INTERNATIONAL)) {
             System.out.println("International order");
         }
 
