@@ -5,6 +5,8 @@ import java.util.List;
 
 public class OrderService {
 
+    private static final double DISCOUNT_THRESHOLD = 100;
+    private static final double DISCOUNT_RATE = 0.9;
     private List<String> orders = new ArrayList<>();
     private String tempDiscount;
     private boolean debugMode = false;
@@ -25,9 +27,9 @@ public class OrderService {
             System.out.println("International order");
         }
 
-        if (total > 100) {
+        if (total > DISCOUNT_THRESHOLD) {
             tempDiscount = "10%";
-            total = total * 0.9;
+            total = total * DISCOUNT_RATE;
         }
 
         System.out.println("Total: " + total);
