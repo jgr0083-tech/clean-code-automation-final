@@ -22,7 +22,7 @@ public class OrderService {
 
         validateQuantity(quantity);
 
-        double total = price * quantity;
+        double total = calculateTotal(price, quantity);
 
         printOrderType(orderType);
 
@@ -59,6 +59,10 @@ public class OrderService {
         } else if (orderType.equals(ORDER_INTERNATIONAL)) {
             System.out.println("International order");
         }
+    }
+
+    private double calculateTotal(double price, int quantity) {
+        return price * quantity;
     }
 
     private double applyDiscount(double total) {
