@@ -32,9 +32,7 @@ public class OrderService {
 
         System.out.println("Total: " + total);
 
-        if (quantity > 0) {
-            orders.add(orderType + "-" + total);
-        }
+        addOrderIfValid(orderType, total, quantity);
 
         System.out.println("Order processed.");
     }
@@ -71,5 +69,11 @@ public class OrderService {
             return total * DISCOUNT_RATE;
         }
         return total;
+    }
+
+    private void addOrderIfValid(String orderType, double total, int quantity) {
+        if (quantity > 0) {
+            orders.add(orderType + "-" + total);
+        }
     }
 }
